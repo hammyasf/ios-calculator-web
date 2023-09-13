@@ -2,7 +2,7 @@ import { FiHeart } from "react-icons/fi";
 
 export default function Credits() {
   return (
-    <section className="p-8 text-center">
+    <section className="p-8 text-center hidden lg:block">
       <h1 className="text-4xl font-bold text-center">Calculator</h1>
       <p className="flex items-center gap-2 justify-center mt-2">
         Made with

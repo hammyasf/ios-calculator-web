@@ -74,7 +74,7 @@ export default function App() {
   return (
     <main className="grid grid-cols-5 w-full gap-8">
       <Credits />
-      <section className="w-96 p-8 border rounded-xl mx-auto my-8 col-span-3">
+      <section className="w-full md:w-96 p-8 border rounded-xl mx-auto my-8 col-span-5 md:col-span-3">
         <div className="text-6xl font-mono text-right truncate mt-16 mb-4">
           {currentNumber}
           {isDecimal && "."}
@@ -86,17 +86,19 @@ export default function App() {
             <Button onClick={toggleSign}>+/-</Button>
             <Button onClick={percent}>%</Button>
             {/** TOP ROW END */}
-            {NUMBERS.map((n) => (
-              <Button
-                onClick={() => {
-                  onNumberClick(n);
-                }}
-                className={n === 0 ? "col-span-2 w-full" : ""}
-              >
-                {n}
-              </Button>
-            ))}
-            <Button onClick={() => setIsDecimal(true)}>.</Button>
+            <div className="grid grid-cols-3 gap-4 col-span-3">
+              {NUMBERS.map((n) => (
+                <Button
+                  onClick={() => {
+                    onNumberClick(n);
+                  }}
+                  className={n === 0 ? "col-span-2 w-full" : ""}
+                >
+                  {n}
+                </Button>
+              ))}
+              <Button onClick={() => setIsDecimal(true)}>.</Button>
+            </div>
           </div>
           <div className="grid grid-cols-1 gap-4">
             {ARITHMETICS.map((a) => (
